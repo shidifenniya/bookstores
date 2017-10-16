@@ -1,0 +1,31 @@
+CREATE TABLE balance(
+
+  uid CHAR(32) PRIMARY KEY ,
+
+  balance CHAR(50),
+
+  FOREIGN KEY (uid) REFERENCES tb_user (uid)
+
+);
+
+CREATE TABLE rechargeCard (
+
+  rid CHAR(32),
+
+  balance CHAR(50),
+
+  state BOOLEAN
+
+);
+
+CREATE TABLE admin(
+
+  aid CHAR(10),
+
+  username CHAR(50),
+
+  password CHAR(50)
+
+);
+
+INSERT INTO admin VALUES ('1','shidifenniya','123456');
