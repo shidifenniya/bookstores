@@ -10,6 +10,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FileUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -78,10 +79,9 @@ public class AdminAddServlet extends HttpServlet {
 
             //获取项目名路径
 
-
             String rootName = this.getServletContext().getRealPath("/book_img/");
 
-            String imageFile = rootName + saveName;
+            String imageFile = rootName + "/" + saveName;
 
             //设置保存文件路径
             File file = new File(imageFile);
@@ -89,9 +89,19 @@ public class AdminAddServlet extends HttpServlet {
             //开始写入文件
             fiimage.write(file);
 
-
             //更改保存图片的宽高
             imageResizer.resizeImage(imageFile,imageFile,110,150);
+
+            ///Users/dllo/Desktop/JavaProject/J0703_BookStore/out/artifacts/J0703_BookStore_war_exploded/book_img
+            ///Users/dllo/Desktop/JavaProject/J0703_BookStore/web/book_img
+            //替换固定路径
+            String fileNewUrl = imageFile.replace("out/artifacts/J0703_BookStore_war_exploded" ,"web");
+
+            //创建永久备份
+            File fileNew = new File(fileNewUrl);
+
+            //拷贝文件
+            FileUtils.copyFile(file, fileNew);
 
             String imageUrl = "book_img/" + saveName;
 

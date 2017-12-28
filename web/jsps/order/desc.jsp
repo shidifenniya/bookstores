@@ -70,7 +70,11 @@
     <div class="panel-heading">订单编号：${order.oid}</div>
     <div class="panel-body">
         <p>成交时间：${order.ordertime}</p>
-        <p>金额：<span style="color: red">${order.total}</span>元</p>
+        <p>金额：<span style="color: red">
+
+                <fmt:formatNumber type="number" value="${order.total}" maxFractionDigits="2"/>
+
+                </span>元</p>
     </div>
 
     <!-- Table -->
@@ -84,7 +88,11 @@
                 <td>单价：${orderItem.book.price}元</td>
                 <td>作者：${orderItem.book.author}</td>
                 <td>数量：${orderItem.count}</td>
-                <td>小计：${orderItem.subtotal}元</td>
+                <td>小计：
+
+                    <fmt:formatNumber type="number" value="${orderItem.subtotal}" maxFractionDigits="2"/>
+
+                    元</td>
             </tr>
         </c:forEach>
     </table>

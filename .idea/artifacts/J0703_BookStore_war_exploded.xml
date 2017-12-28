@@ -27,6 +27,7 @@
           <element id="file-copy" path="$PROJECT_DIR$/../../json-lib/lib-1/xom-1.1.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../../json-lib/lib-1/commons-lang-2.5.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/../../json-lib/lib-1/ezmorph-1.0.6.jar" />
+          <element id="library" level="project" name="lib" />
         </element>
       </element>
     </root>

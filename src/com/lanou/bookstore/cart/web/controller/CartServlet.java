@@ -6,7 +6,7 @@ import com.lanou.bookstore.book.service.BookService;
 import com.lanou.bookstore.book.service.impl.BookServiceImpl;
 import com.lanou.bookstore.cart.domain.Cart;
 import com.lanou.bookstore.cart.domain.CartItem;
-import com.lanou.commons.CommonUtils;
+
 import com.lanou.servlet.BaseServlet;
 
 
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
+
 
 
 /**
@@ -62,12 +62,6 @@ public class CartServlet extends BaseServlet{
             }
 
         }
-
-
-
-
-
-
 
         // --------------
 

@@ -1,22 +1,31 @@
 package com.lanou.bookstore.sdk;
 
-
-import com.oracle.javafx.jmx.json.JSONException;
-import net.sf.json.JSONObject;
-
+import java.awt.print.Printable;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
-
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-
+import java.lang.reflect.GenericArrayType;
 import java.net.HttpURLConnection;
-
+import java.net.InetAddress;
+import java.net.Socket;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Logger;
 
+import javax.print.DocFlavor.STRING;
+import javax.servlet.descriptor.JspConfigDescriptor;
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.crypto.Data;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Java SDK
@@ -218,7 +227,7 @@ public class GeetestLib {
 			}
 			
 			gtlog("result:" + result_str);
-			JSONObject jsonObject = new JSONObject(Boolean.parseBoolean(result_str));
+			JSONObject jsonObject = new JSONObject(result_str);
 		    String return_challenge = jsonObject.getString("challenge");
 		
 			gtlog("return_challenge:" + return_challenge);
@@ -272,7 +281,7 @@ public class GeetestLib {
 	/**
 	 * 检查客户端的请求是否合法,三个只要有一个为空，则判断不合法
 	 * 
-	 * @param
+	 * @param request
 	 * @return
 	 */
 	private boolean resquestIsLegal(String challenge, String validate, String seccode) {
@@ -368,7 +377,7 @@ public class GeetestLib {
 		
 		try {
 			
-			JSONObject return_map = new JSONObject(Boolean.parseBoolean(response));
+			JSONObject return_map = new JSONObject(response);
 			return_seccode = return_map.getString("seccode");
 			gtlog("md5: " + md5Encode(return_seccode));
 
@@ -431,7 +440,7 @@ public class GeetestLib {
 	/**
 	 * 发送GET请求，获取服务器返回结果
 	 * 
-	 * @param
+	 * @param getURL
 	 * @return 服务器返回结果
 	 * @throws IOException
 	 */
@@ -471,7 +480,7 @@ public class GeetestLib {
 	/**
 	 * 发送POST请求，获取服务器返回结果
 	 * 
-	 * @param
+	 * @param getURL
 	 * @return 服务器返回结果
 	 * @throws IOException
 	 */

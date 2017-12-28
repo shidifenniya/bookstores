@@ -94,7 +94,11 @@
             <td style="line-height:200px;">${cartItems.value.book.author}</td>
             <td style="line-height:200px;">${cartItems.value.book.price}元</td>
             <td style="line-height:200px;">${cartItems.value.count}</td>
-            <td style="line-height:200px;">${cartItems.value.book.price * cartItems.value.count}元</td>
+            <td style="line-height:200px;">
+
+                <fmt:formatNumber type="number" value="${cartItems.value.book.price * cartItems.value.count}" maxFractionDigits="2"/>
+
+            元</td>
             <td style="line-height:200px;"><a href="/CartServlet?method=delete&bid=${cartItems.value.book.bid}"
             class="btn btn-warning btn-default" style="margin-top: 80px"
             >删除</a></td>
@@ -111,7 +115,13 @@
             </c:forEach>
 
             >
-            <p><span class="glyphicon glyphicon-yen"></span>&nbsp;&nbsp;${sum}</p>
+            <p><span class="glyphicon glyphicon-yen"></span>
+
+                &nbsp;&nbsp;
+
+                <fmt:formatNumber type="number" value="${sum}" maxFractionDigits="2"/>
+
+            </p>
         </td>
     </tr>
     <tr>
