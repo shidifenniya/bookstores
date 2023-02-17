@@ -140,7 +140,7 @@ public class UserServiceImpl implements UserService {
 
         User dbUser = userDao.findWithEmail(email);
 
-        Session session = MailUtils.createSession("smtp.163.com","shidifenniya@163.com","19970731SDB");
+        Session session = MailUtils.createSession("smtp.163.com","shidifenniya@163.com","HXTPXDZQKXLVBNCG");
 
         String from = "shidifenniya@163.com";
 
